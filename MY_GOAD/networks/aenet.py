@@ -7,12 +7,12 @@ from torch.nn.modules.linear import Linear
 
 
 class autoencoder(nn.Module):
-    def __init__(self,d):
+    def __init__(self,f):
         super().__init__()
-        hidden_dim_1 = d //2 
+        hidden_dim_1 = f //2 
         hidden_dim_2 = hidden_dim_1 // 2
         self.encoder = nn.Sequential(
-            nn.Linear(d, hidden_dim_1),
+            nn.Linear(f, hidden_dim_1),
             #nn.BatchNorm1d(14),
             nn.ReLU(True),
 
@@ -35,7 +35,7 @@ class autoencoder(nn.Module):
             #nn.BatchNorm1d(14),
             nn.ReLU(True),
 
-            nn.Linear(hidden_dim_1,d),
+            nn.Linear(hidden_dim_1,f),
             #nn.BatchNorm1d(23),
             nn.Tanh()
             # nn.ReLU(True),
