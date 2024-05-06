@@ -25,10 +25,19 @@ GOAD는 (Deep Anomaly Detection Using Geometric Transformations)[https://arxiv.o
 
 # GOAD
 
+Cifa10과 각종 tabular 데이터셋에 대해 불균형 데이터셋 또는 Anomaly Detection을 수행할 수 있습니다. 
+
+기존 GOAD보다 훨씬 빨리 훈련을 수행하며 시각 자료를 제공합니다. 
+
+훈련과 테스트에 최적화되게 코드를 개선하였습니다.
+
 ## Training
 ---
 
-To replicate the results of the paper on the tabular-data:  
+Tabular dataset에 대해 
+
+train_ad_tabular 또는 train_AE_tabular 또는 train_AE_tabular_compound 수행하면 됩니다.
+
 ~~~
 python train_ad_tabular.py --n_rots=64 --n_epoch=25 --d_out=64 --ndf=32 --dataset=kdd 
 python train_ad_tabular.py --n_rots=256 --n_epoch=25 --d_out=128 --ndf=128 --dataset=kddrev
@@ -42,31 +51,17 @@ kdd와 kddrev는 s large-scale cyber intrusion detection datasets
 thyroid, arrhythmia : small-scale medical datasets
 cn7 : (사출성형기 데이터셋)[https://www.kamp-ai.kr/front/dataset/AiDataDetail.jsp?AI_SEARCH=&page=1&DATASET_SEQ=4&EQUIP_SEL=&FILE_TYPE_SEL=&GUBUN_SEL=&WDATE_SEL=]
 
-To replicate the results of the paper on CIFAR10:  
-> python train_ad.py --m=0.1
+CIFAR10 훈련에 대해 
 
-## demo
----
-training을 통해 저장된 model을 불러와 테스트합니다.
-~~~
-python train_ad_tabular.py --n_rots=64 --n_epoch=25 --d_out=64 --ndf=32 --dataset=kdd_demo  
-python train_ad_tabular.py --n_rots=64 --n_epoch=25 --d_out=64 --ndf=32 --dataset=cn7_demo
-~~~
+train_ad_image 수행하면 됩니다.
 
-# MY_GOAD
 
-## training 
----
-To replicate the results of the paper on the tabular-data:  
-~~~
-python train_ad_tabular_new_model.py --n_rots=64 --n_epoch=25 --d_out=64 --ndf=32 --dataset=kdd   
-python train_ad_tabular_new_model.py --n_rots=64 --n_epoch=25 --d_out=64 --ndf=32 --dataset=cn7  
-~~~
+Cn7 데이터셋에 대해 
 
-GOAD와 상관없는 AutoEncoder 모델 학습 및 demo  
+![24_pr_curve_graph](https://github.com/khw11044/DeepSVDD-Pytorch-Mine/assets/51473705/d96df66f-f728-4633-b138-b7080fb3d59f)
 
-~~~
-python train_ad_tabular_AE.py --n_rots=64 --n_epoch=25 --d_out=64 --ndf=32 --dataset=cn7   
-~~~
+![24_roc_curve_graph](https://github.com/khw11044/DeepSVDD-Pytorch-Mine/assets/51473705/9ec57651-4454-42a0-bb98-1432a2175228)
 
-AE는 load한 dataset을 transform 하지 않습니다.
+![24_val_result_vis](https://github.com/khw11044/DeepSVDD-Pytorch-Mine/assets/51473705/2ef591aa-e9da-43e7-af7e-1b6662408048)
+
+![AE_error_graph](https://github.com/khw11044/DeepSVDD-Pytorch-Mine/assets/51473705/d7bec100-1748-432e-95f7-dbeb01165481)
