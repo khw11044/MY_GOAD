@@ -14,7 +14,7 @@ def weights_init(m):
         init.normal(m.weight, mean=0, std=0.01)
 
 class netC5(nn.Module):
-    def __init__(self, d, ndf, nc):                             # d : 64, ndf : 32, nc() : 64
+    def __init__(self, d, ndf, nc):
         super(netC5, self).__init__()
         self.trunk = nn.Sequential(
         nn.Conv1d(d, ndf, kernel_size=1, bias=False),
@@ -25,9 +25,8 @@ class netC5(nn.Module):
         nn.LeakyReLU(0.2, inplace=True),
         nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
         nn.LeakyReLU(0.2, inplace=True),
-        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),        
+        nn.Conv1d(ndf, ndf, kernel_size=1, bias=False),
         )
-
         self.head = nn.Sequential(
         nn.LeakyReLU(0.2, inplace=True),
         nn.Conv1d(ndf, nc, kernel_size=1, bias=True),
@@ -35,8 +34,8 @@ class netC5(nn.Module):
 
 
     def forward(self, input):
-        tc = self.trunk(input)                            # classifier이자 encoder,  64 -- > 32
-        ce = self.head(tc)                                # decoder ?  32 --> 64
+        tc = self.trunk(input)
+        ce = self.head(tc)
         return tc, ce
 
 
