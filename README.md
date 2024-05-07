@@ -49,7 +49,7 @@ python train_ad_tabular.py --n_rots=256 --n_epoch=1 --d_out=32 --ndf=8 --dataset
 **dataset**
 kdd와 kddrev는 s large-scale cyber intrusion detection datasets
 thyroid, arrhythmia : small-scale medical datasets
-cn7 : (사출성형기 데이터셋)[https://www.kamp-ai.kr/front/dataset/AiDataDetail.jsp?AI_SEARCH=&page=1&DATASET_SEQ=4&EQUIP_SEL=&FILE_TYPE_SEL=&GUBUN_SEL=&WDATE_SEL=]
+cn7 : (사출성형기 데이터셋)[https://www.kamp-ai.kr/]
 
 CIFAR10 훈련에 대해 
 
